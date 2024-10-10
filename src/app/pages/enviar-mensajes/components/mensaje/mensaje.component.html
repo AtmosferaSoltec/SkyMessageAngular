@@ -1,0 +1,49 @@
+<div class="flex flex-col items-start gap-4 p-4 bg-white shadow-xl rounded-xl">
+  <!-- Titulo -->
+  <span class="text-[18px] font-black"> Mensaje </span>
+
+  <!-- Input para el mensaje -->
+  <textarea
+    class="w-full h-[240px] p-4 rounded-2xl bg-gray-200 text-left align-top focus:outline-none focus:ring-0 resize-none"
+    [value]="service.mensaje()"
+    (change)="setMensaje($event)"
+  ></textarea>
+
+  <div class="flex items-center justify-between w-full">
+    <div>
+      @if (!service.imagenUrl()) {
+      <!-- Botón para seleccionar imagen -->
+      <input
+        type="file"
+        #imgInput
+        style="display: none"
+        (change)="onImgSelected($event)"
+        accept=".png, .jpg, .jpeg"
+      />
+      <button
+        (click)="imgInput.click()"
+        mat-icon-button
+        matTooltip="Agregar Imagen"
+      >
+        <mat-icon>add_photo_alternate</mat-icon>
+      </button>
+
+      } @else {
+      <div class="relative">
+        <img
+          [src]="service.imagenUrl()"
+          class="w-[100px] h-[100px] object-cover rounded-lg"
+        />
+        <button
+          (click)="clearImage()"
+          class="absolute top-0 right-0 w-6 h-6 m-1 text-white rounded-full bg-colorBlack"
+        >
+          <mat-icon>remove</mat-icon>
+        </button>
+      </div>
+      }
+    </div>
+
+    <app-button (click)="service.send()" icon="send" text="Enviar" />
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<form
+  class="flex flex-col gap-4 p-4"
+  [formGroup]="formulario"
+  (submit)="save()"
+>
+  <span class="text-xl font-bold text-colorBlack2">
+    @if (plantilla) { Editar } @else { Nueva } Plantilla</span
+  >
+
+  <div class="flex flex-col items-start gap-0">
+    <span class="text-colorBlack">Titulo</span>
+    <input class="w-full px-2 py-2" type="text" formControlName="titulo" />
+  </div>
+
+  <div class="flex flex-col items-start gap-0">
+    <span class="text-colorBlack">Cuerpo</span>
+    <textarea
+      class="w-full px-2 py-2"
+      type="text"
+      formControlName="cuerpo"
+    ></textarea>
+  </div>
+
+  <div class="flex flex-row items-center justify-end gap-2">
+    <app-button text="Guardar" type="submit" />
+    <app-button text="Cancelar" theme="secondary" (click)="dismiss()" />
+  </div>
+</form>

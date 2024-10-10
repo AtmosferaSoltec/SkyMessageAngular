@@ -1,0 +1,49 @@
+<nav class="flex flex-col h-screen gap-4 p-8">
+  <div class="flex flex-row items-center justify-between">
+    <span class="text-[32px] font-black">Sky Message</span>
+    <button mat-icon-button matTooltip="Cerrar Sesión" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+
+  <div class="flex flex-col gap-3">
+    @for (item of menuList; track $index) {
+    <a
+      class="w-[400px] h-[160px] flex flex-col p-4 bg-white hover:bg-colorBlack hover:text-white rounded-[20px] shadow-lg"
+      [routerLink]="item.link"
+      routerLinkActive="link-active"
+    >
+      <mat-icon style="width: 42px; height: 42px; font-size: 42px">{{
+        item.icon
+      }}</mat-icon>
+      {{ item.name }}
+      <p>{{ item.detail }}</p>
+    </a>
+    } @if (isAdmin()) {
+    <a
+      class="w-[400px] h-[160px] flex flex-col p-4 bg-white hover:bg-colorBlack hover:text-white rounded-[20px] shadow-lg"
+      routerLink="/menu/panel-admin"
+      routerLinkActive="link-active"
+    >
+      <mat-icon style="width: 42px; height: 42px; font-size: 42px"
+        >admin_panel_settings</mat-icon
+      >
+      Panel Admin
+      <p>Configura el mensaje a enviar y el tiempo de espera entre mensajes</p>
+    </a>
+    }
+  </div>
+
+  <div class="flex-1"></div>
+  <div
+    class="bg-colorBlack rounded-[20px] items-center px-4 gap-4 flex h-[64px]"
+  >
+    @if (isAuthenticaded()) {
+    <mat-icon class="text-colorGreen">circle</mat-icon>
+    <span class="text-lg font-black text-white">Conectado</span>
+    } @else {
+    <mat-icon class="text-colorT1">circle</mat-icon>
+    <span class="text-lg font-black text-white">Desconectado</span>
+    }
+  </div>
+</nav>

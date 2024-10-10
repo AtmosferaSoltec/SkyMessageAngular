@@ -1,0 +1,25 @@
+
+<table class="w-full bg-white shadow-xl rounded-xl">
+    <thead>
+      <tr>
+        <th class="p-4 text-start">Nro</th>
+        <th class="p-4 text-start">Nombre</th>
+        <th class="p-4 text-start">Celular</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of service.listContactos(); track $index) {
+      <tr class="bg-colorGrey even:bg-white">
+        <td class="px-4 py-2">{{ $index + 1 }}</td>
+        <td class="px-4 py-2">{{ item.nombre }}</td>
+        <td class="px-4 py-2">{{ item.celular }}</td>
+      </tr>
+      } @empty {
+      <tr>
+        <td class="px-4 py-2 text-center rounded-b-xl bg-colorGrey" colspan="3">
+          No hay registros
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>

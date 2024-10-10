@@ -1,0 +1,27 @@
+<div
+  class="flex items-center px-4 w-full h-[64px] gap-2 bg-white shadow-xl rounded-xl justify-between"
+>
+  <span class="flex gap-2 text-[18px] items-center">
+    <select
+      class="font-bold"
+      [(ngModel)]="service.plantilla"
+      (change)="setPlantilla()"
+    >
+      @if (!service.plantilla()) {
+      <option [ngValue]="null">Seleccionar plantilla</option>
+      } @for (item of listPlantillas(); track $index) {
+      <option [ngValue]="item">{{ item.titulo }}</option>
+      }
+    </select>
+  </span>
+
+  <div class="flex-auto"></div>
+
+  @if (service.plantilla()) {
+
+  <app-icon-button icon="edit" matTooltip="Editar" (click)="editPlantilla()"/>
+  <app-icon-button icon="close" matTooltip="Limpiar" (click)="removePlantilla()"/>
+  } @else {
+  <app-button theme="secondary" icon="add" text="Plantilla" (click)="addPlantilla()"/>
+  }
+</div>

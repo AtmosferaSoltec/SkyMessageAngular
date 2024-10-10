@@ -1,0 +1,28 @@
+<form class="flex flex-col gap-4 p-4" [formGroup]="formulario" (submit)="editar()">
+  <span class="text-xl font-bold text-colorBlack2">Editar Usuario</span>
+  
+  <div class="flex flex-col items-start gap-0 sm:flex-row sm:items-center sm:gap-2">
+    <span class="flex-1 text-colorBlack">Usuario</span>
+    <input class="flex-[2] px-2 py-2" type="text" formControlName="user"/>
+  </div>
+
+  <div class="flex flex-col items-start gap-0 sm:flex-row sm:items-center sm:gap-2">
+    <span class="flex-1 text-colorBlack">Nombre</span>
+    <input class="flex-[2] px-2 py-2" type="text" formControlName="nombre"/>
+  </div>
+
+  <div class="flex flex-col items-start gap-0 sm:flex-row sm:items-center sm:gap-2">
+    <span class="flex-1 text-colorBlack">Instancia</span>
+    <input class="flex-[2] px-2 py-2" type="text" formControlName="instance"/>
+  </div>
+
+  <div class="flex flex-col items-start gap-0 sm:flex-row sm:items-center sm:gap-2">
+    <span class="flex-1 text-colorBlack">Token</span>
+    <input class="flex-[2] px-2 py-2" type="text" formControlName="token"/>
+  </div>
+
+  <div class="flex flex-row items-center justify-end gap-2">
+    <app-button text="Guardar" type="submit" />
+    <app-button text="Cancelar" theme="secondary" (click)="dismiss()" />
+  </div>
+</form>

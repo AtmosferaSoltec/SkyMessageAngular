@@ -1,0 +1,6 @@
+{
+  "builds": [
+    { "src": "dist/sky-message-angular/browser/**/*", "use": "@vercel/static" }
+  ],
+  "routes": [{ "src": "/(.*)", "dest": "dist/sky-message-angular/browser/$1" }]
+}

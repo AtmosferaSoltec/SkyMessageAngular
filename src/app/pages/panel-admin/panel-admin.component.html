@@ -1,0 +1,82 @@
+<div class="flex flex-col gap-4">
+  <div class="flex flex-row items-center justify-between">
+    <span class="text-xl font-bold text-colorBlack2">Lista de Usuarios</span>
+    <div>
+      <app-button text="Agregar" (click)="agregar()"/>
+    </div>
+  </div>
+
+  <table class="w-full bg-white shadow-xl rounded-xl">
+    <thead>
+      <tr>
+        <th class="p-4 text-start">Usuario</th>
+        <th class="p-4 text-start">Nombre</th>
+        <th class="p-4 text-start">Instancia</th>
+        <th class="p-4 text-start">Token</th>
+        <th class="p-4 text-start">Estado</th>
+        <th class="p-4 text-start">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of listUsuarios(); track $index) {
+      <tr class="bg-colorGrey even:bg-white">
+        <!-- Usuario -->
+        <td class="px-4 py-2">
+          <span>{{ item.user }}</span>
+        </td>
+  
+        <!-- Nombre -->
+        <td class="px-4 py-2">
+          <span>{{ item.nombre }}</span>
+        </td>
+  
+        <!-- Instancia -->
+        <td class="px-4 py-2">
+          <span>{{ item.instance }}</span>
+        </td>
+  
+        <!-- Token -->
+        <td class="px-4 py-2">
+          <span>{{ item.token }}</span>
+        </td>
+  
+        <!-- Estado -->
+        <td class="px-4 py-2">
+          <div class="flex flex-row items-center gap-2">
+            <div
+              [ngClass]="{
+                'bg-red-400': !item.activo,
+                'bg-green-400': item.activo
+              }"
+              class="w-2 h-2 rounded-full"
+            ></div>
+            <span class="text-sm">{{ item.activo | estado }}</span>
+          </div>
+        </td>
+  
+        <!-- Acciones -->
+        <td class="px-4 py-2">
+          @if (item.activo) {
+              <button mat-icon-button matTooltip="Editar" (click)="editar(item)">
+                <mat-icon class="text-colorBlack">edit</mat-icon>
+              </button>
+              <button mat-icon-button matTooltip="Eliminar" (click)="eliminar(item)">
+                <mat-icon class="text-colorBlack">delete</mat-icon>
+              </button>
+          } @else {
+              <button mat-icon-button matTooltip="Restaurar" (click)="restore(item)">
+                <mat-icon class="text-colorBlack">restore_alt</mat-icon>
+              </button>
+          }
+        </td>
+      </tr>
+      } @empty {
+      <tr>
+        <td class="px-4 py-2 text-center rounded-b-xl bg-colorGrey" colspan="6">
+          No hay registros 
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

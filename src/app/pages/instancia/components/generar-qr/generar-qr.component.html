@@ -1,0 +1,54 @@
+  <div class="flex flex-col items-center justify-center w-full h-full gap-4">
+
+    @if (isLoadingInstance()) {
+      <div class="loader"></div>
+      } @else {
+        <span class="text-2xl font-black text-center text-colorBlack"
+          >Usa Sky Message vinculando tu dispositivo<br />con WhatsApp</span
+        >
+        <ul class="text-sm text-center text-colorT1">
+          <li>
+            1. Abre WhatsApp en tu móvil y ve a "Ajustes" > "Dispositivos
+            vinculados".
+          </li>
+          <li>2. Toca "Vincular dispositivo" para abrir la cámara.</li>
+          <li>3. Genera el código QR en la pantalla (solo dura 40 segundos).</li>
+          <li>4. Escanea el código con tu móvil para vincular el dispositivo.</li>
+          <li>5. Actualiza la conexión y listo.</li>
+        </ul>
+    
+        <div
+          class="w-[300px] h-[300px] bg-white shadow-xl rounded-xl relative flex items-center justify-center"
+        >
+          @if (imageQR) {
+          <!-- QR -->
+          <img class="w-[280px] h-[280px]" [src]="imageQR" alt="QR" />
+          } @else {
+          <!-- Placeholder -->
+          <img
+            class="w-[280px] h-[280px] opacity-20"
+            src="https://media.istockphoto.com/id/1347277582/es/vector/ejemplo-de-c%C3%B3digo-qr-para-escanear-tel%C3%A9fonos-inteligentes-sobre-fondo-blanco.jpg?s=612x612&w=0&k=20&c=pfKpGETpjly8kSptb9dm15ozs5OusYSUpIQ6i4Zd2Bk="
+            alt="QR"
+          />
+          }
+          <!-- Loader -->
+          @if (isLoading) {
+          <div class="absolute loader"></div>
+          }
+        </div>
+    
+        <button
+          class="w-[300px] flex items-center justify-center gap-2 px-4 py-2 text-white rounded-lg shadow-lg bg-colorBlack hover:bg-colorBlack2 hover:text-white active:text-white active:bg-black disabled:opacity-20"
+          [disabled]="isLoading"
+          (click)="generarQR()"
+        >
+          @if (timer > 0) {
+          <mat-icon>schedule</mat-icon>
+          <span class="text-lg font-bold">Faltan 00:{{ timer | seconds }} seg</span>
+          } @else {
+          <mat-icon>add_circle</mat-icon>
+          <span class="text-lg font-bold">Generar QR</span>
+          }
+        </button>
+      }
+</div>

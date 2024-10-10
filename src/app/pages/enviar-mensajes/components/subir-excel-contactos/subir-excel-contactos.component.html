@@ -1,0 +1,39 @@
+
+<div
+class="flex items-center px-4 w-full h-[64px] bg-white shadow-xl rounded-xl justify-between"
+>
+<span class="text-[18px] font-black"> Detalle de registros </span>
+
+<div class="flex items-center gap-2">
+  <input
+    type="file"
+    #fileInput
+    style="display: none"
+    (change)="onFileSelected($event)"
+    accept=".xlsx, .xls"
+  />
+
+  @if (service.archivo()) {
+  <button
+    class="h-[42px] rounded-lg px-4 flex items-center gap-2 bg-colorGrey hover:bg-colorBlack hover:text-white active:bg-black"
+    (click)="removeFile()"
+  >
+    <mat-icon>delete</mat-icon>
+    <span>{{ service.archivo()?.name }}</span>
+  </button>
+  } @else {
+
+  <!--
+      <app-button icon="person_add" text="Agregar" />
+        -->
+
+  <app-button
+    theme="secondary"
+    icon="upload_file"
+    text="Subir Excel"
+    (click)="fileInput.click()"
+  />
+
+  }
+</div>
+</div>

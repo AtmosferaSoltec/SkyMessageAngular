@@ -1,0 +1,69 @@
+<div
+  class="flex items-center justify-center w-full h-full p-12 overflow-y-auto bg-colorGrey"
+>
+
+  <div class="flex w-full h-full gap-16 p-16 bg-white rounded-lg shadow-lg">
+    <form class="flex flex-col justify-center flex-1 gap-4" [formGroup]="formulario" (submit)="login()">
+      <span class="text-[32px] font-black"
+        >Iniciar Sesión<br />en Sky Message</span
+      >
+      <p class="text-[20px] text-colorT1">
+        Ingresa tu nombre de usuario y contraseña para iniciar
+      </p>
+
+      <div>
+        <input
+          type="text"
+          class="border border-colorBlack text-colorBlack text-[20px] rounded-lg focus:ring-colorBlack focus:border-colorBlack block w-full p-2.5"
+          placeholder="Usuario"
+          required
+          formControlName="user"
+        />
+      </div>
+      
+      <div>
+        <input
+          type="password"
+          class="border border-colorBlack text-colorBlack text-[20px] rounded-lg focus:ring-colorBlack focus:border-colorBlack block w-full p-2.5"
+          placeholder="Contraseña"
+          required
+          formControlName="password"
+        />
+      </div>
+
+      @if (isLoading()) {
+      <div class="flex justify-center">
+        <div class="loader"></div>
+      </div>
+      } @else {
+        <div>
+          <button
+            type="submit"
+            class="flex justify-center w-full gap-2 px-4 py-2 text-center text-white rounded-lg shadow-lg bg-colorBlack hover:bg-colorBlack2 hover:text-white active:text-white active:bg-black"
+          >
+            <span class="text-lg font-bold">Ingresar</span>
+          </button>
+        </div>
+      }
+
+       <!-- Checkbox
+      <label class="inline-flex items-center cursor-pointer">
+        <input type="checkbox" value="" class="sr-only peer" />
+        <div
+          class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-colorBlack"
+        ></div>
+        <span class="text-sm text-colorBlack ms-3">Recordarme</span>
+      </label>
+       -->
+
+      @if (error) {
+      <div class="flex justify-center">
+        <span class="text-red-900">{{ error }}</span>
+      </div>
+      }
+    </form>
+    <div class="flex-[2] justify-center items-center hidden md:flex">
+      <img src="../../../assets/images/prueba.png" alt="" />
+    </div>
+  </div>
+</div>

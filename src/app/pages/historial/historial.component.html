@@ -1,0 +1,40 @@
+<div class="flex flex-col gap-4 p-2">
+  <div
+    class="flex items-center justify-between w-full px-4 py-2 bg-white shadow-xl rounded-xl"
+  >
+    <span class="text-xl font-bold text-colorBlack">Historial General</span>
+
+    <!--
+    <app-button icon="filter_alt" text="Filtar" theme="secondary" />
+    -->
+  </div>
+
+  <table class="w-full bg-white shadow-xl rounded-xl">
+    <thead>
+      <tr>
+        <th class="p-4 text-start">Número de envío</th>
+        <th class="p-4 text-start">Fecha</th>
+        <th class="p-4 text-start">Hora</th>
+        <th class="p-4 text-start">Enviados</th>
+        <th class="p-4 text-start">Mensaje</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of listHistorial(); track $index) {
+      <tr class="bg-colorGrey even:bg-white">
+        <td class="px-4 py-2">#{{ item.correlativo | numEnvio }}</td>
+        <td class="px-4 py-2">{{ item.created_at | date : "dd-MM-yyyy" }}</td>
+        <td class="px-4 py-2">{{ item.created_at | date : "HH:mm a" }}</td>
+        <td class="px-4 py-2">{{ item.enviados }}/{{ item.total }}</td>
+        <td class="px-4 py-2">{{ item.mensaje }}</td>
+      </tr>
+      } @empty {
+      <tr>
+        <td class="px-4 py-2 text-center rounded-b-xl bg-colorGrey" colspan="3">
+          No hay registros
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
