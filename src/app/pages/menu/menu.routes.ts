@@ -4,6 +4,7 @@ import { HistorialComponent } from "../historial/historial.component";
 import { InstanciaComponent } from "../instancia/instancia.component";
 import { PanelAdminComponent } from "../panel-admin/panel-admin.component";
 import { authGuard } from "../../guards/auth.guard";
+import { isAdminGuard } from "../../guards/is-admin.guard";
 
 export const menuRoutes: Routes = [
     {
@@ -24,6 +25,6 @@ export const menuRoutes: Routes = [
     {
       path: 'panel-admin',
       component: PanelAdminComponent,
-      canActivate: [authGuard]
+      canActivate: [authGuard, isAdminGuard]
     }
   ];
