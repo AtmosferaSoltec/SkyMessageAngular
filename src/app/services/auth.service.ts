@@ -1,10 +1,10 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
-import { environment } from '../../environments/environment.development';
+import { HttpClient } from "@angular/common/http";
+import { inject, Injectable } from "@angular/core";
+import { lastValueFrom } from "rxjs";
+import { environment } from "../../environments/environment.development";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AuthService {
   private readonly baseUrl = `${environment.baseUrl}/api/auth`;
@@ -26,10 +26,29 @@ export class AuthService {
     }
   }
 
-  async validarToken() : Promise<boolean> {
+  async changePassword(oldPass: string, newPass: string) {
+    try {
+      await this.delay(1000);
+      const request = {
+        oldPassword: oldPass,
+        newPassword: newPass,
+      };
+      
+      const response = await lastValueFrom(
+        this.http.post(`${this.baseUrl}/change-password`, request)
+      );
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async validarToken(): Promise<boolean> {
     try {
       const response = await lastValueFrom(
-        this.http.post(`${this.baseUrl}/validar-token`, { token: localStorage.getItem('token') })
+        this.http.post(`${this.baseUrl}/validar-token`, {
+          token: localStorage.getItem("token"),
+        })
       );
       if (!response) {
         return false;
@@ -42,6 +61,6 @@ export class AuthService {
   }
 
   isAdmin() {
-    return this.http.get(`${this.baseUrl}/is-admin`)
+    return this.http.get(`${this.baseUrl}/is-admin`);
   }
 }

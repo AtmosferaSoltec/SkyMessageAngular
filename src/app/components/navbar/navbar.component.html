@@ -1,6 +1,13 @@
 <nav class="flex flex-col h-screen gap-4 p-8">
-  <div class="flex flex-row items-center justify-between">
+  <div class="flex flex-row items-center gap-2">
     <span class="text-[32px] font-black">Sky Message</span>
+
+    <div class="flex-auto"></div>
+
+    <button mat-icon-button matTooltip="Cambiar Contraseña" (click)="changePassword()">
+      <mat-icon>lock_reset</mat-icon>
+    </button>
+    <!-- Boton para cerrar sesión -->
     <button mat-icon-button matTooltip="Cerrar Sesión" (click)="logout()">
       <mat-icon>logout</mat-icon>
     </button>
