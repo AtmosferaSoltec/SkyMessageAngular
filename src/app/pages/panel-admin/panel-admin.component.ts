@@ -34,6 +34,11 @@ export class PanelAdminComponent implements OnInit {
     this.listarUsuarios();
   }
 
+  getUsers(): Usuario[] {
+    const filterUser = this.listUsuarios().filter((u)=> (u.tipoUsuario === 'User'));
+    return filterUser;
+  }
+
   listarUsuarios() {
     this.usuarioService.getUsers().subscribe({
       next: (data: any) => {

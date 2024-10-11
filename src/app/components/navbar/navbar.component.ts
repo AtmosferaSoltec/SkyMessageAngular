@@ -76,6 +76,7 @@ export class NavbarComponent implements OnInit {
       next: (data: any) => {
         if (data === true) {
           this.isAdmin.set(true);
+          this.router.navigate(["menu", "panel-admin"]);
         }
       },
     });

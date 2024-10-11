@@ -4,7 +4,11 @@
 
     <div class="flex-auto"></div>
 
-    <button mat-icon-button matTooltip="Cambiar Contraseña" (click)="changePassword()">
+    <button
+      mat-icon-button
+      matTooltip="Cambiar Contraseña"
+      (click)="changePassword()"
+    >
       <mat-icon>lock_reset</mat-icon>
     </button>
     <!-- Boton para cerrar sesión -->
@@ -14,6 +18,21 @@
   </div>
 
   <div class="flex flex-col gap-3">
+    <!-- Si es Admin -->
+    @if (isAdmin()) {
+    <a
+      class="w-[400px] h-[160px] flex flex-col p-4 bg-white hover:bg-colorBlack hover:text-white rounded-[20px] shadow-lg"
+      routerLink="/menu/panel-admin"
+      routerLinkActive="link-active"
+    >
+      <mat-icon style="width: 42px; height: 42px; font-size: 42px"
+        >admin_panel_settings</mat-icon
+      >
+      Panel Admin
+      <p>Configura el mensaje a enviar y el tiempo de espera entre mensajes</p>
+    </a>
+    }@else {
+    <!-- Si es Usuario -->
     @for (item of menuList; track $index) {
     <a
       class="w-[400px] h-[160px] flex flex-col p-4 bg-white hover:bg-colorBlack hover:text-white rounded-[20px] shadow-lg"
@@ -26,19 +45,7 @@
       {{ item.name }}
       <p>{{ item.detail }}</p>
     </a>
-    } @if (isAdmin()) {
-    <a
-      class="w-[400px] h-[160px] flex flex-col p-4 bg-white hover:bg-colorBlack hover:text-white rounded-[20px] shadow-lg"
-      routerLink="/menu/panel-admin"
-      routerLinkActive="link-active"
-    >
-      <mat-icon style="width: 42px; height: 42px; font-size: 42px"
-        >admin_panel_settings</mat-icon
-      >
-      Panel Admin
-      <p>Configura el mensaje a enviar y el tiempo de espera entre mensajes</p>
-    </a>
-    }
+    } }
   </div>
 
   <div class="flex-1"></div>
