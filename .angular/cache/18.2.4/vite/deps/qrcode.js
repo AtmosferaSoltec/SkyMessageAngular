@@ -1,6 +1,6 @@
 import {
   __commonJS
-} from "./chunk-3OV72XIM.js";
+} from "./chunk-K4KU7J5H.js";
 
 // node_modules/qrcode/lib/can-promise.js
 var require_can_promise = __commonJS({

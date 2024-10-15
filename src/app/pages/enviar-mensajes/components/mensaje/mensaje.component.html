@@ -10,14 +10,14 @@
   ></textarea>
 
   <div class="flex items-center justify-between w-full">
-    <div>
-      @if (!service.imagenUrl()) {
+    <div class="flex items-center">
       <!-- Botón para seleccionar imagen -->
+      @if (!service.fileUrl()) {
       <input
         type="file"
         #imgInput
         style="display: none"
-        (change)="onImgSelected($event)"
+        (change)="onArchivoSelected($event)"
         accept=".png, .jpg, .jpeg"
       />
       <button
@@ -27,11 +27,10 @@
       >
         <mat-icon>add_photo_alternate</mat-icon>
       </button>
-
       } @else {
       <div class="relative">
         <img
-          [src]="service.imagenUrl()"
+          [src]="service.fileUrl()"
           class="w-[100px] h-[100px] object-cover rounded-lg"
         />
         <button
@@ -42,6 +41,44 @@
         </button>
       </div>
       }
+
+      <!-- Botón para seleccionar video
+      <div>
+        <input
+          type="file"
+          #imgInput
+          style="display: none"
+          (change)="onImgSelected($event)"
+          accept=".png, .jpg, .jpeg"
+        />
+        <button
+          (click)="imgInput.click()"
+          mat-icon-button
+          matTooltip="Agregar Documento"
+        >
+          <mat-icon>picture_as_pdf</mat-icon>
+        </button>
+      </div>
+      -->
+      
+      <!-- Botón para seleccionar pdf 
+      <div>
+        <input
+          type="file"
+          #imgInput
+          style="display: none"
+          (change)="onArchivoSelected($event)"
+          accept=".png, .jpg, .jpeg, .pdf"
+        />
+        <button
+          (click)="imgInput.click()"
+          mat-icon-button
+          matTooltip="Agregar Documento"
+        >
+          <mat-icon>picture_as_pdf</mat-icon>
+        </button>
+      </div> 
+      -->
     </div>
 
     <app-button (click)="service.send()" icon="send" text="Enviar" />

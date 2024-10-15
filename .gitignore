@@ -1,2 +1,8 @@
-node_modules
-dist
+/node_modules
+/dist
+/.angular
+/angular
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
