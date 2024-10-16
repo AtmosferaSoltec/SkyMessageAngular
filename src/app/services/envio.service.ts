@@ -1,9 +1,9 @@
-import { inject, Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from "@angular/core";
+import { environment } from "../../environments/environment";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class EnvioService {
   private readonly baseUrl = `${environment.baseUrl}/api/envio`;
@@ -19,5 +19,12 @@ export class EnvioService {
 
   getAllHistorial() {
     return this.http.get(`${this.baseUrl}/historial`);
+  }
+
+  stopEnvio(id: number) {
+    const url = `${this.baseUrl}/stop/${id}`;
+    console.log(url);
+    
+    return this.http.post(url, {});
   }
 }

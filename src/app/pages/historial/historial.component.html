@@ -16,7 +16,8 @@
         <th class="p-4 text-start">Fecha</th>
         <th class="p-4 text-start">Hora</th>
         <th class="p-4 text-start">Enviados</th>
-        <th class="p-4 text-start">Mensaje</th>
+        <th class="p-4 text-start">Estado</th>
+        <th class="p-4 text-center">Mensaje</th>
       </tr>
     </thead>
     <tbody>
@@ -25,12 +26,37 @@
         <td class="px-4 py-2">#{{ item.correlativo | numEnvio }}</td>
         <td class="px-4 py-2">{{ item.created_at | date : "dd-MM-yyyy" }}</td>
         <td class="px-4 py-2">{{ item.created_at | date : "HH:mm a" }}</td>
-        <td class="px-4 py-2">{{ item.enviados }}/{{ item.total }}</td>
-        <td class="px-4 py-2">{{ item.mensaje }}</td>
+        <td class="px-4 py-2">
+          <div class="flex items-center">
+            <span> {{ item.enviados }}/{{ item.total }}</span>
+            @if (item.estado == "Enviando") {
+            <div class="loader2"></div>
+            }
+          </div>
+        </td>
+        <td class="px-4 py-2">{{ item.estado }}</td>
+        <td class="flex items-center justify-center px-4 py-2">
+          <button
+            (click)="verMensaje(item)"
+            mat-icon-button
+            matTooltip="Ver Mensaje"
+          >
+            <mat-icon>mark_email_read</mat-icon>
+          </button>
+          @if (item.estado != "Completado" && item.estado != "Cancelado") {
+          <button
+            (click)="detenerEnvio(item)"
+            mat-icon-button
+            matTooltip="Detener"
+          >
+            <mat-icon>stop_circle</mat-icon>
+          </button>
+          }
+        </td>
       </tr>
       } @empty {
       <tr>
-        <td class="px-4 py-2 text-center rounded-b-xl bg-colorGrey" colspan="3">
+        <td class="px-4 py-2 text-center rounded-b-xl bg-colorGrey" colspan="6">
           No hay registros
         </td>
       </tr>

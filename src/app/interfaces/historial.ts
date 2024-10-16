@@ -1,7 +1,13 @@
 export default interface Historial {
-    correlativo: number;
-    mensaje: string;
-    created_at: Date;
-    enviados: number;
-    total: number;
+  id?: number;
+  correlativo: number;
+  mensaje: string;
+  created_at: Date;
+  enviados: number;
+  total: number;
+
+  tipoEnvio?: string;
+  urlArchivo?: string;
+
+  estado?: string;
 }
