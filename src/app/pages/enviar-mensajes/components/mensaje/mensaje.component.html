@@ -9,78 +9,13 @@
     (change)="setMensaje($event)"
   ></textarea>
 
+  <div class="w-full">
+    <app-archivo-adjunto />
+  </div>
+
   <div class="flex items-center justify-between w-full">
-    <div class="flex items-center">
-      <!-- Botón para seleccionar imagen -->
-      @if (!service.fileUrl()) {
-      <input
-        type="file"
-        #imgInput
-        style="display: none"
-        (change)="onArchivoSelected($event)"
-        accept=".png, .jpg, .jpeg"
-      />
-      <button
-        (click)="imgInput.click()"
-        mat-icon-button
-        matTooltip="Agregar Imagen"
-      >
-        <mat-icon>add_photo_alternate</mat-icon>
-      </button>
-      } @else {
-      <div class="relative">
-        <img
-          [src]="service.fileUrl()"
-          class="w-[100px] h-[100px] object-cover rounded-lg"
-        />
-        <button
-          (click)="clearImage()"
-          class="absolute top-0 right-0 w-6 h-6 m-1 text-white rounded-full bg-colorBlack"
-        >
-          <mat-icon>remove</mat-icon>
-        </button>
-      </div>
-      }
-
-      <!-- Botón para seleccionar video
-      <div>
-        <input
-          type="file"
-          #imgInput
-          style="display: none"
-          (change)="onImgSelected($event)"
-          accept=".png, .jpg, .jpeg"
-        />
-        <button
-          (click)="imgInput.click()"
-          mat-icon-button
-          matTooltip="Agregar Documento"
-        >
-          <mat-icon>picture_as_pdf</mat-icon>
-        </button>
-      </div>
-      -->
-      
-      <!-- Botón para seleccionar pdf 
-      <div>
-        <input
-          type="file"
-          #imgInput
-          style="display: none"
-          (change)="onArchivoSelected($event)"
-          accept=".png, .jpg, .jpeg, .pdf"
-        />
-        <button
-          (click)="imgInput.click()"
-          mat-icon-button
-          matTooltip="Agregar Documento"
-        >
-          <mat-icon>picture_as_pdf</mat-icon>
-        </button>
-      </div> 
-      -->
-    </div>
-
+    <app-subir-archivo />
     <app-button (click)="service.send()" icon="send" text="Enviar" />
   </div>
+  
 </div>

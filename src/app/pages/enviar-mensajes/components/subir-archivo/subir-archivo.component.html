@@ -1,0 +1,14 @@
+<div class="flex items-center">
+  @for (item of listMedia; track $index) {
+  <input
+    type="file"
+    #fileInput
+    style="display: none"
+    (change)="onArchivoSelected($event, item.tipoEnvio)"
+    [accept]="item.accept"
+  />
+  <button (click)="fileInput.click()" mat-icon-button [matTooltip]="item.tip">
+    <mat-icon>{{ item.icon }}</mat-icon>
+  </button>
+  }
+</div>

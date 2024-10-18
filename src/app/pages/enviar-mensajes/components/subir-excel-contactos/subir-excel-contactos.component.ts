@@ -17,13 +17,13 @@ export class SubirExcelContactosComponent {
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
     if (file) {
-      this.service.archivo.set(file);
+      this.service.excel.set(file);
       this.leerExcel(file);
     }
   }
 
   removeFile() {
-    this.service.archivo.set(null);
+    this.service.excel.set(null);
   }
 
   leerExcel(file: File) {

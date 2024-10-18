@@ -11,12 +11,9 @@ export class EnviarMensajeService {
   plantilla = signal<Plantilla | null>(null);
   mensaje = signal("");
 
-  // Imagen
-  file = signal<File | null>(null);
-  fileUrl = signal<string | null>(null);
-  fileType = signal<number | null>(null);
-
+  tipoEnvio = signal<number>(1);
   archivo = signal<File | null>(null);
+  excel = signal<File | null>(null);
 
   listContactos = signal<any[]>([]);
 
@@ -24,19 +21,21 @@ export class EnviarMensajeService {
   fireStorageService = inject(FireStorageService);
 
   async send() {
-    let tipoEnvio = 1;
     let urlArchivoFirebase = "";
-    if (this.file()) {
+    if (this.archivo()) {
       try {
         urlArchivoFirebase = await this.fireStorageService.uploadImage(
-          this.file()!
+          this.archivo()!,
+          this.tipoEnvio()
         );
-        tipoEnvio = 2;
       } catch (error) {
         Swal.fire("Error", "Ha ocurrido un error al subir el archivo", "error");
         return;
       }
     }
+
+    console.log(urlArchivoFirebase);
+    
 
     //Validar si el mensaje esta vacio
     if (this.mensaje().trim() === "") {
@@ -56,7 +55,7 @@ export class EnviarMensajeService {
 
     const req = {
       mensaje: this.mensaje(),
-      tipoEnvio: tipoEnvio,
+      tipoEnvio: this.tipoEnvio(),
       urlArchivo: urlArchivoFirebase,
       destinatarios: this.listContactos().map((contacto) => {
         return {
@@ -66,16 +65,17 @@ export class EnviarMensajeService {
       }),
     };
 
+    console.log(req);
+    
     this.envioService.send(req).subscribe({
       next: (data: any) => {
         Swal.fire("Mensaje enviado", "El mensaje ha sido enviado", "success");
         this.plantilla.set(null);
         this.mensaje.set("");
-        this.file.set(null);
-        this.fileUrl.set(null);
-        this.fileType.set(null);
-        this.listContactos.set([]);
         this.archivo.set(null);
+        this.tipoEnvio.set(1);
+        this.listContactos.set([]);
+        this.excel.set(null);
       },
       error: (error: any) => {
         Swal.fire(

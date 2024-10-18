@@ -1,0 +1,36 @@
+<!-- Si hay archivo -->
+@if (service.archivo()) {
+
+<div class="flex flex-col w-full gap-4 p-2 bg-colorGrey">
+  <div class="flex items-center gap-2">
+    <mat-icon>attach_file</mat-icon>
+    <span class="text-lg font-bold">Archivo adjunto</span>
+    <div class="flex-auto"></div>
+    <button
+      mat-icon-button
+      (click)="eliminarArchivo()"
+      matTooltip="Eliminar archivo"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="flex items-center gap-2">
+    <!-- Icono -->
+    <div
+      class="w-[32px] h-[32px] bg-white flex items-center justify-center rounded-md"
+    >
+      <mat-icon [class]="getTipoArchivoColor()">{{
+        getTipoArchivoIcon()
+      }}</mat-icon>
+    </div>
+
+    <!-- Nombre del archivo -->
+    <span class="font-bold">{{ service.archivo()?.name }}</span>
+
+    <div class="flex-auto"></div>
+
+    <!-- Tamaño del archivo -->
+    <span class="text-colorT1">{{ getFileSize(service.archivo()?.size) }}</span>
+  </div>
+</div>
+}

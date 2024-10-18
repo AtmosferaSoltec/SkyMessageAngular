@@ -13,13 +13,13 @@ class="flex items-center px-4 w-full h-[64px] bg-white shadow-xl rounded-xl just
     accept=".xlsx, .xls"
   />
 
-  @if (service.archivo()) {
+  @if (service.excel()) {
   <button
     class="h-[42px] rounded-lg px-4 flex items-center gap-2 bg-colorGrey hover:bg-colorBlack hover:text-white active:bg-black"
     (click)="removeFile()"
   >
     <mat-icon>delete</mat-icon>
-    <span>{{ service.archivo()?.name }}</span>
+    <span>{{ service.excel()?.name }}</span>
   </button>
   } @else {
 
