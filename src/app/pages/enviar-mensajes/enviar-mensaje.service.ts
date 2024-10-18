@@ -20,8 +20,12 @@ export class EnviarMensajeService {
   envioService = inject(EnvioService);
   fireStorageService = inject(FireStorageService);
 
+  isLoading = signal(false);
+
   async send() {
+    this.isLoading.set(true);
     let urlArchivoFirebase = "";
+
     if (this.archivo()) {
       try {
         urlArchivoFirebase = await this.fireStorageService.uploadImage(
@@ -30,11 +34,10 @@ export class EnviarMensajeService {
         );
       } catch (error) {
         Swal.fire("Error", "Ha ocurrido un error al subir el archivo", "error");
+        this.isLoading.set(false);
         return;
       }
     }
-
-    console.log(urlArchivoFirebase);
     
 
     //Validar si el mensaje esta vacio
@@ -64,8 +67,6 @@ export class EnviarMensajeService {
         };
       }),
     };
-
-    console.log(req);
     
     this.envioService.send(req).subscribe({
       next: (data: any) => {
@@ -84,6 +85,9 @@ export class EnviarMensajeService {
           "error"
         );
       },
+      complete: () => {
+        this.isLoading.set(false);
+      }
     });
   }
 }

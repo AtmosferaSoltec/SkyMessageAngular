@@ -15,7 +15,11 @@
 
   <div class="flex items-center justify-between w-full">
     <app-subir-archivo />
-    <app-button (click)="service.send()" icon="send" text="Enviar" />
+    @if (service.isLoading()) {
+      <div class="loader2"></div>
+    } @else {
+      <app-button (click)="service.send()" icon="send" text="Enviar" />
+    }
   </div>
   
 </div>
