@@ -43,7 +43,21 @@ export class SubirExcelContactosComponent {
         return miembro;
       });
       
-      this.service.listContactos.set(listExcel);
+      const validContacts = listExcel.filter(
+        (item) => /^[9]\d{8}$/.test(item.celular)
+      );
+
+      console.log(validContacts);
+      
+  
+      // Lista sin duplicados por número de celular
+      const uniqueContacts = Array.from(
+        new Map(validContacts.map((item) => [item.celular, item])).values()
+      );
+      console.log(uniqueContacts);
+      
+      
+      this.service.listContactos.set(uniqueContacts);
     };
   }
 
