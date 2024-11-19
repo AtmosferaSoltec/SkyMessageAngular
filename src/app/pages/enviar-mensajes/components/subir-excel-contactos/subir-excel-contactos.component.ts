@@ -3,6 +3,7 @@ import { ButtonComponent } from '../../../../components/button/button.component'
 import { MatIconModule } from '@angular/material/icon';
 import * as xls from 'xlsx';
 import { EnviarMensajeService } from '../../enviar-mensaje.service';
+import { list } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-subir-excel-contactos',
@@ -24,6 +25,7 @@ export class SubirExcelContactosComponent {
 
   removeFile() {
     this.service.excel.set(null);
+    this.service.listContactos.set([]);
   }
 
   leerExcel(file: File) {
