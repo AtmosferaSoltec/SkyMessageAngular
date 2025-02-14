@@ -1,6 +1,6 @@
 export const environment = {
     //baseUrl: 'http://localhost:4343',
-    baseUrl: 'https://sv-YaAUgKfBpu.cloud.elastika.pe:4343',
+    baseUrl: 'https://atmosfera-soltec.com:4343',
     firebaseConfig: {
       apiKey: "AIzaSyC21Dw_V80PoGbezo2xSIQcnsob3PmNusI",
       authDomain: "skymessage-ab4e6.firebaseapp.com",
