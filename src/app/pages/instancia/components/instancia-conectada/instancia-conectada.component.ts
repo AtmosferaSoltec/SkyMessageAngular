@@ -5,10 +5,9 @@ import Swal from 'sweetalert2';
 import { InstanciaPageService } from '../../instancia-page.service';
 
 @Component({
-  selector: 'app-instancia-conectada',
-  standalone: true,
-  imports: [ButtonComponent],
-  templateUrl: './instancia-conectada.component.html',
+    selector: 'app-instancia-conectada',
+    imports: [ButtonComponent],
+    templateUrl: './instancia-conectada.component.html'
 })
 export class InstanciaConectadaComponent implements OnInit {
   readonly instanciaService = inject(InstanciaService);

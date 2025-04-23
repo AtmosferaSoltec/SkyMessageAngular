@@ -9,10 +9,9 @@ import { SubirArchivoComponent } from "../subir-archivo/subir-archivo.component"
 import { ArchivoAdjuntoComponent } from "../archivo-adjunto/archivo-adjunto.component";
 
 @Component({
-  selector: 'app-mensaje',
-  standalone: true,
-  imports: [CommonModule, MatIconModule, ButtonComponent, MatButtonModule, MatTooltipModule, SubirArchivoComponent, ArchivoAdjuntoComponent],
-  templateUrl: './mensaje.component.html',
+    selector: 'app-mensaje',
+    imports: [CommonModule, MatIconModule, ButtonComponent, MatButtonModule, MatTooltipModule, SubirArchivoComponent, ArchivoAdjuntoComponent],
+    templateUrl: './mensaje.component.html'
 })
 export class MensajeComponent {
   service = inject(EnviarMensajeService);

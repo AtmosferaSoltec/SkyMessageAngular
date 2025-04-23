@@ -6,15 +6,14 @@ import { SubirExcelContactosComponent } from './components/subir-excel-contactos
 import { TablaExcelContactosComponent } from './components/tabla-excel-contactos/tabla-excel-contactos.component';
 
 @Component({
-  selector: 'app-enviar-mensajes',
-  standalone: true,
-  imports: [
-    CommonModule,
-    SelectPlantillaComponent,
-    MensajeComponent,
-    SubirExcelContactosComponent,
-    TablaExcelContactosComponent,
-  ],
-  templateUrl: './enviar-mensajes.component.html',
+    selector: 'app-enviar-mensajes',
+    imports: [
+        CommonModule,
+        SelectPlantillaComponent,
+        MensajeComponent,
+        SubirExcelContactosComponent,
+        TablaExcelContactosComponent,
+    ],
+    templateUrl: './enviar-mensajes.component.html'
 })
 export class EnviarMensajesComponent {}

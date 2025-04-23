@@ -10,16 +10,15 @@ import Swal from "sweetalert2";
 import { MatDialog } from "@angular/material/dialog";
 import { DialogChangePasswordComponent } from "../../shared/dialogs/dialog-change-password/dialog-change-password.component";
 @Component({
-  selector: "app-navbar",
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    MatIconModule,
-    MatButtonModule,
-    MatTooltipModule,
-  ],
-  templateUrl: "./navbar.component.html",
+    selector: "app-navbar",
+    imports: [
+        CommonModule,
+        RouterModule,
+        MatIconModule,
+        MatButtonModule,
+        MatTooltipModule,
+    ],
+    templateUrl: "./navbar.component.html"
 })
 export class NavbarComponent implements OnInit {
   menuList = [

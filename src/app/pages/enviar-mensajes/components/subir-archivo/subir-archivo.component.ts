@@ -5,10 +5,9 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { EnviarMensajeService } from "../../enviar-mensaje.service";
 
 @Component({
-  selector: "app-subir-archivo",
-  standalone: true,
-  imports: [MatIconModule, MatButtonModule, MatTooltipModule],
-  templateUrl: "./subir-archivo.component.html",
+    selector: "app-subir-archivo",
+    imports: [MatIconModule, MatButtonModule, MatTooltipModule],
+    templateUrl: "./subir-archivo.component.html"
 })
 export class SubirArchivoComponent {
 

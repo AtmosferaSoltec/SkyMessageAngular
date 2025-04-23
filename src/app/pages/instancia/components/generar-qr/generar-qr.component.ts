@@ -9,14 +9,13 @@ import { InstanciaService } from '../../../../services/instancia.service';
 import { InstanciaPageService } from '../../instancia-page.service';
 
 @Component({
-  selector: 'app-generar-qr',
-  standalone: true,
-  imports: [MatIconModule, SecondsPipe],
-  templateUrl: './generar-qr.component.html',
-  animations: [
-    trigger('fadeInOut', fadeInOut()),
-    trigger('prueba', animPrueba()),
-  ],
+    selector: 'app-generar-qr',
+    imports: [MatIconModule, SecondsPipe],
+    templateUrl: './generar-qr.component.html',
+    animations: [
+        trigger('fadeInOut', fadeInOut()),
+        trigger('prueba', animPrueba()),
+    ]
 })
 export class GenerarQRComponent implements OnInit {
 

@@ -7,10 +7,9 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from '../../../services/users.service';
 
 @Component({
-  selector: 'app-dialog-edit-usuario',
-  standalone: true,
-  imports: [CommonModule, ButtonComponent, ReactiveFormsModule],
-  templateUrl: './dialog-edit-usuario.component.html',
+    selector: 'app-dialog-edit-usuario',
+    imports: [CommonModule, ButtonComponent, ReactiveFormsModule],
+    templateUrl: './dialog-edit-usuario.component.html'
 })
 export class DialogEditUsuarioComponent {
   readonly dialogRef = inject(MatDialogRef<DialogEditUsuarioComponent>);

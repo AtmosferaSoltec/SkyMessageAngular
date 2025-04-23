@@ -11,10 +11,9 @@ import { MatIconModule } from "@angular/material/icon";
 import { AuthService } from "../../../services/auth.service";
 
 @Component({
-  selector: "app-dialog-change-password",
-  standalone: true,
-  imports: [ReactiveFormsModule, ButtonComponent, MatIconModule],
-  templateUrl: "./dialog-change-password.component.html",
+    selector: "app-dialog-change-password",
+    imports: [ReactiveFormsModule, ButtonComponent, MatIconModule],
+    templateUrl: "./dialog-change-password.component.html"
 })
 export class DialogChangePasswordComponent {
   readonly dialogRef = inject(MatDialogRef<DialogChangePasswordComponent>);

@@ -6,10 +6,9 @@ import { InstanciaService } from '../../services/instancia.service';
 import { InstanciaPageService } from './instancia-page.service';
 
 @Component({
-  selector: 'app-instancia',
-  standalone: true,
-  imports: [CommonModule, GenerarQRComponent, InstanciaConectadaComponent],
-  templateUrl: './instancia.component.html',
+    selector: 'app-instancia',
+    imports: [CommonModule, GenerarQRComponent, InstanciaConectadaComponent],
+    templateUrl: './instancia.component.html'
 })
 export class InstanciaComponent implements OnInit {
   

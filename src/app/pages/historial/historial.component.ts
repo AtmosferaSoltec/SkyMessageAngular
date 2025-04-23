@@ -1,7 +1,6 @@
 import { Component, inject, OnInit, signal } from "@angular/core";
 import { EnvioService } from "../../services/envio.service";
 import { CommonModule } from "@angular/common";
-import { ButtonComponent } from "../../components/button/button.component";
 import Historial from "../../interfaces/historial";
 import { NumEnvioPipe } from "../../pipes/num-envio.pipe";
 import { MatIconModule } from "@angular/material/icon";
@@ -11,17 +10,16 @@ import { MatDialog } from "@angular/material/dialog";
 import { DialogVerMensajeComponent } from "./components/dialog-ver-mensaje/dialog-ver-mensaje.component";
 
 @Component({
-  selector: "app-historial",
-  standalone: true,
-  imports: [
-    CommonModule,
-    ButtonComponent,
-    NumEnvioPipe,
-    MatIconModule,
-    MatButtonModule,
-    MatTooltipModule,
-  ],
-  templateUrl: "./historial.component.html",
+    selector: "app-historial",
+    imports: [
+        CommonModule,
+        NumEnvioPipe,
+        MatIconModule,
+        MatButtonModule,
+        MatTooltipModule,
+    ],
+    templateUrl: "./historial.component.html",
+    standalone: true,
 })
 export class HistorialComponent implements OnInit {
   envioService = inject(EnvioService);

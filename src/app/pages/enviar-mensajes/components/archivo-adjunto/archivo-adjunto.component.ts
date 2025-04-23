@@ -5,10 +5,9 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatTooltipModule } from "@angular/material/tooltip";
 
 @Component({
-  selector: "app-archivo-adjunto",
-  standalone: true,
-  imports: [MatIconModule, MatButtonModule, MatTooltipModule],
-  templateUrl: "./archivo-adjunto.component.html",
+    selector: "app-archivo-adjunto",
+    imports: [MatIconModule, MatButtonModule, MatTooltipModule],
+    templateUrl: "./archivo-adjunto.component.html"
 })
 export class ArchivoAdjuntoComponent {
   service = inject(EnviarMensajeService);

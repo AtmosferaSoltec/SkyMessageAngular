@@ -6,10 +6,9 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { UsersService } from '../../../services/users.service';
 
 @Component({
-  selector: 'app-dialog-add-usuario',
-  standalone: true,
-  imports: [CommonModule, ButtonComponent, ReactiveFormsModule],
-  templateUrl: './dialog-add-usuario.component.html'
+    selector: 'app-dialog-add-usuario',
+    imports: [CommonModule, ButtonComponent, ReactiveFormsModule],
+    templateUrl: './dialog-add-usuario.component.html'
 })
 export class DialogAddUsuarioComponent {
 

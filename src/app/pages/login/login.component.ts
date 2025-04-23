@@ -6,10 +6,9 @@ import { CommonModule } from '@angular/common';
 import { PrefsService } from '../../services/prefs.service';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './login.component.html',
+    selector: 'app-login',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './login.component.html'
 })
 export class LoginComponent {
   authService = inject(AuthService);

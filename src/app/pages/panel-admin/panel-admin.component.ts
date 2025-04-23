@@ -13,17 +13,16 @@ import { ButtonComponent } from "../../components/button/button.component";
 import { DialogAddUsuarioComponent } from './dialog-add-usuario/dialog-add-usuario.component';
 
 @Component({
-  selector: 'app-panel-admin',
-  standalone: true,
-  imports: [
-    CommonModule,
-    EstadoPipe,
-    MatButtonModule,
-    MatIconModule,
-    MatTooltipModule,
-    ButtonComponent
-],
-  templateUrl: './panel-admin.component.html',
+    selector: 'app-panel-admin',
+    imports: [
+        CommonModule,
+        EstadoPipe,
+        MatButtonModule,
+        MatIconModule,
+        MatTooltipModule,
+        ButtonComponent
+    ],
+    templateUrl: './panel-admin.component.html'
 })
 export class PanelAdminComponent implements OnInit {
   listUsuarios = signal<Usuario[]>([]);

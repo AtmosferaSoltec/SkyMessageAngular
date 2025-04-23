@@ -12,17 +12,16 @@ import { FormPlantillaComponent } from '../../../../components/dialogs/form-plan
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-select-plantilla',
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    MatIconModule,
-    MatTooltipModule,
-    ButtonComponent,
-    IconButtonComponent,
-  ],
-  templateUrl: './select-plantilla.component.html',
+    selector: 'app-select-plantilla',
+    imports: [
+        CommonModule,
+        FormsModule,
+        MatIconModule,
+        MatTooltipModule,
+        ButtonComponent,
+        IconButtonComponent,
+    ],
+    templateUrl: './select-plantilla.component.html'
 })
 export class SelectPlantillaComponent implements OnInit {
   plantillaService = inject(PlantillaService);

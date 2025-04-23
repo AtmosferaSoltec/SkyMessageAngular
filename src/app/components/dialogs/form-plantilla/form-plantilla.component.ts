@@ -12,10 +12,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import Plantilla from '../../../interfaces/plantilla';
 
 @Component({
-  selector: 'app-form-plantilla',
-  standalone: true,
-  imports: [ReactiveFormsModule, ButtonComponent],
-  templateUrl: './form-plantilla.component.html',
+    selector: 'app-form-plantilla',
+    imports: [ReactiveFormsModule, ButtonComponent],
+    templateUrl: './form-plantilla.component.html'
 })
 export class FormPlantillaComponent implements OnInit{
 
