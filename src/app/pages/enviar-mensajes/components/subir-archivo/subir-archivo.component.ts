@@ -5,12 +5,12 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { EnviarMensajeService } from "../../enviar-mensaje.service";
 
 @Component({
-    selector: "app-subir-archivo",
-    imports: [MatIconModule, MatButtonModule, MatTooltipModule],
-    templateUrl: "./subir-archivo.component.html"
+  selector: "app-subir-archivo",
+  imports: [MatIconModule, MatButtonModule, MatTooltipModule],
+  templateUrl: "./subir-archivo.component.html",
+  standalone: true,
 })
 export class SubirArchivoComponent {
-
   service = inject(EnviarMensajeService);
   listMedia = [
     {
@@ -32,7 +32,6 @@ export class SubirArchivoComponent {
       accept: ".mp4",
     },
   ];
-  
 
   onArchivoSelected(event: any, tipo: number) {
     this.service.archivo.set(null);

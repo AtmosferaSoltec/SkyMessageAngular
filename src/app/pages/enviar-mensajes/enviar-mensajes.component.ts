@@ -14,6 +14,7 @@ import { TablaExcelContactosComponent } from './components/tabla-excel-contactos
         SubirExcelContactosComponent,
         TablaExcelContactosComponent,
     ],
-    templateUrl: './enviar-mensajes.component.html'
+    templateUrl: './enviar-mensajes.component.html',
+    standalone: true,
 })
 export class EnviarMensajesComponent {}

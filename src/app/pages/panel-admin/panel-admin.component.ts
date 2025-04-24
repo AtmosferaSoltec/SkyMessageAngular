@@ -22,7 +22,8 @@ import { DialogAddUsuarioComponent } from './dialog-add-usuario/dialog-add-usuar
         MatTooltipModule,
         ButtonComponent
     ],
-    templateUrl: './panel-admin.component.html'
+    templateUrl: './panel-admin.component.html',
+    standalone: true,
 })
 export class PanelAdminComponent implements OnInit {
   listUsuarios = signal<Usuario[]>([]);

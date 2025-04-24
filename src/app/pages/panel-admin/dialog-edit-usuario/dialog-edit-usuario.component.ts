@@ -9,7 +9,8 @@ import { UsersService } from '../../../services/users.service';
 @Component({
     selector: 'app-dialog-edit-usuario',
     imports: [CommonModule, ButtonComponent, ReactiveFormsModule],
-    templateUrl: './dialog-edit-usuario.component.html'
+    templateUrl: './dialog-edit-usuario.component.html',
+    standalone: true,
 })
 export class DialogEditUsuarioComponent {
   readonly dialogRef = inject(MatDialogRef<DialogEditUsuarioComponent>);

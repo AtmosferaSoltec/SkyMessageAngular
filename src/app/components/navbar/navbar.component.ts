@@ -18,7 +18,8 @@ import { DialogChangePasswordComponent } from "../../shared/dialogs/dialog-chang
         MatButtonModule,
         MatTooltipModule,
     ],
-    templateUrl: "./navbar.component.html"
+    templateUrl: "./navbar.component.html",
+    standalone: true,
 })
 export class NavbarComponent implements OnInit {
   menuList = [

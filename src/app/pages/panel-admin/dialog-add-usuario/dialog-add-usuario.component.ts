@@ -8,7 +8,8 @@ import { UsersService } from '../../../services/users.service';
 @Component({
     selector: 'app-dialog-add-usuario',
     imports: [CommonModule, ButtonComponent, ReactiveFormsModule],
-    templateUrl: './dialog-add-usuario.component.html'
+    templateUrl: './dialog-add-usuario.component.html',
+    standalone: true,
 })
 export class DialogAddUsuarioComponent {
 

@@ -1,21 +1,21 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { GenerarQRComponent } from './components/generar-qr/generar-qr.component';
-import { InstanciaConectadaComponent } from './components/instancia-conectada/instancia-conectada.component';
-import { InstanciaService } from '../../services/instancia.service';
-import { InstanciaPageService } from './instancia-page.service';
+import { Component, inject, OnInit, signal } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { GenerarQRComponent } from "./components/generar-qr/generar-qr.component";
+import { InstanciaConectadaComponent } from "./components/instancia-conectada/instancia-conectada.component";
+import { InstanciaService } from "../../services/instancia.service";
+import { InstanciaPageService } from "./instancia-page.service";
 
 @Component({
-    selector: 'app-instancia',
-    imports: [CommonModule, GenerarQRComponent, InstanciaConectadaComponent],
-    templateUrl: './instancia.component.html'
+  selector: "app-instancia",
+  imports: [CommonModule, GenerarQRComponent, InstanciaConectadaComponent],
+  templateUrl: "./instancia.component.html",
+  standalone: true,
 })
 export class InstanciaComponent implements OnInit {
-  
   instanciaService = inject(InstanciaService);
   isLoading = signal(false);
 
-  service = inject(InstanciaPageService)
+  service = inject(InstanciaPageService);
 
   ngOnInit(): void {
     this.getEstado();
@@ -25,7 +25,7 @@ export class InstanciaComponent implements OnInit {
     this.isLoading.set(true);
     this.instanciaService.getEstado().subscribe({
       next: (data: any) => {
-        if (data?.status?.accountStatus?.status === 'authenticated') {
+        if (data?.status?.accountStatus?.status === "authenticated") {
           this.service.isConnected.set(true);
         }
       },

@@ -6,7 +6,8 @@ import { CommonModule } from "@angular/common";
 @Component({
     selector: "app-dialog-ver-mensaje",
     imports: [CommonModule],
-    templateUrl: "./dialog-ver-mensaje.component.html"
+    templateUrl: "./dialog-ver-mensaje.component.html",
+    standalone: true,
 })
 export class DialogVerMensajeComponent {
   readonly dialogRef = inject(MatDialogRef<DialogVerMensajeComponent>);

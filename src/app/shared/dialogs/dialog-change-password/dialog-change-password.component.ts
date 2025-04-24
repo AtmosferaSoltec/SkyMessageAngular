@@ -13,7 +13,8 @@ import { AuthService } from "../../../services/auth.service";
 @Component({
     selector: "app-dialog-change-password",
     imports: [ReactiveFormsModule, ButtonComponent, MatIconModule],
-    templateUrl: "./dialog-change-password.component.html"
+    templateUrl: "./dialog-change-password.component.html",
+    standalone: true,
 })
 export class DialogChangePasswordComponent {
   readonly dialogRef = inject(MatDialogRef<DialogChangePasswordComponent>);

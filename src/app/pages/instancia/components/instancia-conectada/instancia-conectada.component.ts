@@ -7,7 +7,8 @@ import { InstanciaPageService } from '../../instancia-page.service';
 @Component({
     selector: 'app-instancia-conectada',
     imports: [ButtonComponent],
-    templateUrl: './instancia-conectada.component.html'
+    templateUrl: './instancia-conectada.component.html',
+    standalone: true,
 })
 export class InstanciaConectadaComponent implements OnInit {
   readonly instanciaService = inject(InstanciaService);

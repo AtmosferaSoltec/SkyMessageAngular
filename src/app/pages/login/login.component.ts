@@ -1,14 +1,20 @@
-import { Component, inject, signal } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import Swal from 'sweetalert2';
-import { CommonModule } from '@angular/common';
-import { PrefsService } from '../../services/prefs.service';
-import { Router } from '@angular/router';
+import { Component, inject, signal } from "@angular/core";
+import { AuthService } from "../../services/auth.service";
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from "@angular/forms";
+import Swal from "sweetalert2";
+import { CommonModule } from "@angular/common";
+import { PrefsService } from "../../services/prefs.service";
+import { Router } from "@angular/router";
 @Component({
-    selector: 'app-login',
-    imports: [CommonModule, ReactiveFormsModule],
-    templateUrl: './login.component.html'
+  selector: "app-login",
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: "./login.component.html",
+  standalone: true,
 })
 export class LoginComponent {
   authService = inject(AuthService);
@@ -16,9 +22,9 @@ export class LoginComponent {
   error?: any;
 
   formulario = new FormGroup({
-    user: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
-  })
+    user: new FormControl("", [Validators.required]),
+    password: new FormControl("", [Validators.required]),
+  });
 
   router = inject(Router);
 
@@ -28,17 +34,17 @@ export class LoginComponent {
     try {
       if (this.formulario.invalid) {
         Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Debes llenar todos los campos',
+          icon: "error",
+          title: "Error",
+          text: "Debes llenar todos los campos",
         });
         return;
       }
       const { user, password } = this.formulario.value;
       this.isLoading.set(true);
       const res: any = await this.authService.login(user!, password!);
-      this.prefsService.saveToken(res.access_token)
-      this.router.navigate(['menu', 'enviar-mensajes']);
+      this.prefsService.saveToken(res.access_token);
+      this.router.navigate(["menu", "enviar-mensajes"]);
     } catch (error) {
       this.error = error;
     } finally {

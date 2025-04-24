@@ -21,7 +21,8 @@ import { MatDialog } from '@angular/material/dialog';
         ButtonComponent,
         IconButtonComponent,
     ],
-    templateUrl: './select-plantilla.component.html'
+    templateUrl: './select-plantilla.component.html',
+    standalone: true,
 })
 export class SelectPlantillaComponent implements OnInit {
   plantillaService = inject(PlantillaService);

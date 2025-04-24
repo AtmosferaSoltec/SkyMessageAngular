@@ -7,7 +7,8 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 @Component({
     selector: "app-archivo-adjunto",
     imports: [MatIconModule, MatButtonModule, MatTooltipModule],
-    templateUrl: "./archivo-adjunto.component.html"
+    templateUrl: "./archivo-adjunto.component.html",
+    standalone: true,
 })
 export class ArchivoAdjuntoComponent {
   service = inject(EnviarMensajeService);

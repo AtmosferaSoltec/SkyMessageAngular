@@ -15,7 +15,8 @@ import { InstanciaPageService } from '../../instancia-page.service';
     animations: [
         trigger('fadeInOut', fadeInOut()),
         trigger('prueba', animPrueba()),
-    ]
+    ],
+    standalone: true,
 })
 export class GenerarQRComponent implements OnInit {
 

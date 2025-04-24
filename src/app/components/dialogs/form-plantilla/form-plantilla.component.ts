@@ -14,7 +14,8 @@ import Plantilla from '../../../interfaces/plantilla';
 @Component({
     selector: 'app-form-plantilla',
     imports: [ReactiveFormsModule, ButtonComponent],
-    templateUrl: './form-plantilla.component.html'
+    templateUrl: './form-plantilla.component.html',
+    standalone: true,
 })
 export class FormPlantillaComponent implements OnInit{
 

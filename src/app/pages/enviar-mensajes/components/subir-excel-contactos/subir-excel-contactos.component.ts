@@ -8,7 +8,8 @@ import { list } from '@angular/fire/storage';
 @Component({
     selector: 'app-subir-excel-contactos',
     imports: [MatIconModule, ButtonComponent],
-    templateUrl: './subir-excel-contactos.component.html'
+    templateUrl: './subir-excel-contactos.component.html',
+    standalone: true,
 })
 export class SubirExcelContactosComponent {
 
