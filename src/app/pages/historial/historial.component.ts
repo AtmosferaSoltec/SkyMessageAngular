@@ -10,25 +10,30 @@ import { MatDialog } from "@angular/material/dialog";
 import { DialogVerMensajeComponent } from "./components/dialog-ver-mensaje/dialog-ver-mensaje.component";
 
 @Component({
-    selector: "app-historial",
-    imports: [
-        CommonModule,
-        NumEnvioPipe,
-        MatIconModule,
-        MatButtonModule,
-        MatTooltipModule,
-    ],
-    templateUrl: "./historial.component.html",
-    standalone: true,
+  selector: "app-historial",
+  imports: [
+    CommonModule,
+    NumEnvioPipe,
+    MatIconModule,
+    MatButtonModule,
+    MatTooltipModule,
+  ],
+  templateUrl: "./historial.component.html",
+  standalone: true,
 })
 export class HistorialComponent implements OnInit {
   envioService = inject(EnvioService);
   listHistorial = signal<Historial[]>([]);
+  isLoading = signal<boolean>(false);
 
   ngOnInit(): void {
+    this.isLoading.set(true);
     this.envioService.getAllHistorial().subscribe({
       next: (data: any) => {
         this.listHistorial.set(data);
+      },
+      complete: () => {
+        this.isLoading.set(false);
       },
     });
   }

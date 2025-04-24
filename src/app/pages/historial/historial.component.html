@@ -9,6 +9,11 @@
     -->
   </div>
 
+  @if (isLoading()) {
+  <div class="flex items-center justify-center w-full h-96">
+    <div class="loader"></div>
+  </div>
+  }@else {
   <table class="w-full bg-white shadow-xl rounded-xl">
     <thead>
       <tr>
@@ -63,4 +68,5 @@
       }
     </tbody>
   </table>
+  }
 </div>

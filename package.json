@@ -11,7 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^19.2.8",
-    "@angular/cdk": "^19.2.11",
+    "@angular/cdk": "^19.2.3",
     "@angular/common": "^19.2.8",
     "@angular/compiler": "^19.2.8",
     "@angular/core": "^19.2.8",
@@ -21,7 +21,9 @@
     "@angular/platform-browser": "^19.2.8",
     "@angular/platform-browser-dynamic": "^19.2.8",
     "@angular/router": "^19.2.8",
+    "@primeng/themes": "^19.1.0",
     "@types/qrcode": "^1.5.5",
+    "primeng": "^19.1.0",
     "qrcode": "^1.5.4",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.14.1",

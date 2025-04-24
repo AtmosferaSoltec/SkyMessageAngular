@@ -8,6 +8,8 @@ import { httpInterceptor } from "./interceptor/http-interceptor.service";
 import { initializeApp, provideFirebaseApp } from "@angular/fire/app";
 import { getStorage, provideStorage } from "@angular/fire/storage";
 import { environment } from "../environments/environment";
+import { providePrimeNG } from "primeng/config";
+import MyPreset from "./my-preset";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,9 +17,15 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     provideHttpClient(withInterceptors([httpInterceptor])),
-    provideFirebaseApp(() =>
-      initializeApp(environment.firebaseConfig)
-    ),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideStorage(() => getStorage()),
+    providePrimeNG({
+      theme: {
+        preset: MyPreset,
+        options: {
+          darkModeSelector: false,
+        },
+      },
+    }),
   ],
 };
